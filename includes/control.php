@@ -35,5 +35,26 @@ class control extends model
     {
         return empty($username) || empty($pwd);
     }
+
+    public function is_empty_inputs_add_products($product_name, $product_price, $product_desc, $product_category, $product_img)
+    {
+        return empty($product_name) || empty($product_price) || empty($product_desc) || empty($product_category) || empty($product_img);
+    }
+
+    public function is_invalid_product_name(string $product_name)
+    {
+        return !preg_match("/^[a-zA-Z]+$/", $product_name);
+    }
+
+    public function is_invalid_product_price($product_price)
+    {
+        return !is_numeric($product_price);
+    }
+
+    public function is_invalid_product_desc(string $product_desc)
+    {
+        return strlen($product_desc) >= 100;
+        
+    }
 }
 ?>

@@ -15,7 +15,7 @@ if (!isset($_SESSION['admin'])) {
 </head>
 <body class="bg-gray-100 flex">
   <!-- Sidebar -->
-  <aside class="w-64 bg-white h-screen shadow-md p-4">
+  <aside class="w-55 bg-white h-screen shadow-md p-4">
     <h2 class="text-2xl font-bold mb-6">Admin Panel</h2>
     <nav>
       <a href="index.php" class="block py-2 px-3 hover:bg-gray-200 rounded mb-2">Products</a>

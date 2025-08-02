@@ -16,7 +16,7 @@ if (!isset($_SESSION['admin'])) {
 <body class="bg-gray-100">
   <!-- Sidebar -->
   <div class="flex">
-    <aside class="w-64 bg-white h-screen shadow-md p-4">
+    <aside class="w-55 bg-white h-screen shadow-md p-4">
       <h2 class="text-2xl font-bold mb-6">Admin Panel</h2>
       <nav>
         <a href="index.php" class="block py-2 px-3 bg-blue-500 text-white rounded mb-2">Products</a>
@@ -25,39 +25,42 @@ if (!isset($_SESSION['admin'])) {
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 p-6">
+    <main class="flex-1 p-6 overflow-x-auto">
       <h1 class="text-3xl font-bold mb-4">Products List</h1>
-      <table class="w-full bg-white shadow rounded-lg overflow-hidden">
+      <table class="min-w-full bg-white shadow rounded-lg overflow-hidden">
         <thead class="bg-gray-200">
           <tr>
             <th class="py-3 px-4 text-left">ID</th>
-            <th class="py-3 px-4 text-left">Image</th> <!-- ✅ Added -->
+            <th class="py-3 px-4 text-left">Image</th>
             <th class="py-3 px-4 text-left">Name</th>
+            <th class="py-3 px-4 text-left">Description</th>
             <th class="py-3 px-4 text-left">Price</th>
+            <th class="py-3 px-4 text-left">Category</th>
             <th class="py-3 px-4 text-left">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="border-b">
+          <tr class="border-b hover:bg-gray-50">
             <td class="py-2 px-4">1</td>
             <td class="py-2 px-4">
               <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg" alt="Product" class="w-12 h-12 rounded object-cover">
             </td>
             <td class="py-2 px-4">Sample Product</td>
+            <td class="py-2 px-4">This is a sample description of the product.</td>
             <td class="py-2 px-4">$50</td>
+            <td class="py-2 px-4">Electronics</td>
             <td class="py-2 px-4">
               <a href="edit.php" class="text-blue-500 mr-3">Edit</a>
               <button class="text-red-500">Delete</button>
             </td>
           </tr>
-          <!-- Repeat rows dynamically -->
+          <!-- More rows dynamically -->
         </tbody>
       </table>
     </main>
   </div>
 </body>
 </html>
-
 <?php
 }
 ?>
