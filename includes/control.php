@@ -1,7 +1,7 @@
 <?php
 class control extends model
 {
-    public function is_empty_inputs_register($username, $email, $password)
+    public function is_empty_inputs($username, $email, $password)
     {
         return empty($username) || empty($email) || empty($password);
     }
@@ -29,6 +29,11 @@ class control extends model
     public function is_empty_inputs_login($email, $pwd)
     {
         return empty($email) || empty($pwd);
+    }
+
+    public function is_empty_inputs_admin($username, $pwd)
+    {
+        return empty($username) || empty($pwd);
     }
 }
 ?>

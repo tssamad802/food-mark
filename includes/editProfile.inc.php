@@ -1,5 +1,6 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $id = trim($_POST['id']);
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
     $password = trim($_POST['pwd']);
@@ -52,21 +53,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($errors) {
             require_once 'config_session.inc.php';
             $_SESSION['errors'] = $errors;
-            header('Location: ../register.php?errors');
+            header('Location: ../editProfile.php?errors');
             exit;
         }
 
-        $result = $controller->insert($username, $email, $password);
-
-        if ($result) {
-            header('Location: ../login.php?success');
+        $user = $controller->editprofile($id, $username, $email, $password);
+        if ($user) {
+            $user = $controller->Get_User_By_Id($id);
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_name'] = $user['username'];
+            $_SESSION['user_email'] = $user['email'];
+            $_SESSION['user_pwd'] = $user['pwd'];
+            header('Location: ../Profile.php');
+            exit;
         }
-
     } catch (PDOException $e) {
         die('Query Failed : ' . $e->getMessage());
     }
 } else {
-    header('Location: ../register.php');
+    header('Location: ../editProfile.php');
     exit;
 }
 ?>

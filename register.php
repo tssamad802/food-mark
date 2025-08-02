@@ -1,7 +1,12 @@
 <?php
 require_once 'includes/view.php';
-$errors = new view();
-if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
+$view = new view();
+if (
+    isset($_SESSION['user_id']) && 
+    isset($_SESSION['user_name']) && 
+    isset($_SESSION['user_email']) && 
+    isset($_SESSION['user_pwd'])
+    ) {
   header('Location: ./index.php');
   exit;
 } else {
@@ -59,7 +64,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
     </p>
 
     <?php
-    $errors->register_errors();
+    $view->register_errors();
     ?>
   </form>
 

@@ -60,5 +60,29 @@ class model
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function editprofile($id, $username, $email, $password)
+    {
+        $sql = "UPDATE `users` 
+            SET username = :username, 
+                email = :email, 
+                pwd = :pwd 
+            WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':pwd', $password);
+        $stmt->execute();
+        return true;
+    }
+
+    public function Get_User_By_Id($id) {
+        $sql = "SELECT * FROM `users` WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return true;
+    }
 }
 ?>

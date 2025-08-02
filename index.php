@@ -1,14 +1,19 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) && !isset($_SESSION['username'])) {
-  header('Location: ./login.php');
-  exit;
+if (
+    !isset($_SESSION['user_id']) && 
+    !isset($_SESSION['user_name']) && 
+    !isset($_SESSION['user_email']) && 
+    !isset($_SESSION['user_pwd'])
+    ) {
+    header('Location: ./login.php');
+    exit;
 } else {
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FoodMart - Free eCommerce Grocery Store HTML Website Template</title>
+    <title>FoodMart</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -186,7 +191,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['username'])) {
 
             <ul class="d-flex justify-content-end list-unstyled m-0">
               <li>
-                <a href="#" class="rounded-circle bg-light p-2 mx-1">
+                <a href="./profile.php" class="rounded-circle bg-light p-2 mx-1">
                   <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
                 </a>
               </li>

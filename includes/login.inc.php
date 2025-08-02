@@ -30,7 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = $controller->login($email, $pwd);
         if ($user) {
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
+            $_SESSION['user_name'] = $user['username'];
+            $_SESSION['user_email'] = $user['email'];
+            $_SESSION['user_pwd'] = $user['pwd'];
             header('Location: ../index.php?login');
             exit;
         } else {
