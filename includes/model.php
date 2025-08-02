@@ -77,12 +77,24 @@ class model
         return true;
     }
 
-    public function Get_User_By_Id($id) {
+    public function Get_User_By_Id($id)
+    {
         $sql = "SELECT * FROM `users` WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return true;
+    }
+
+    public function admin($username, $pwd)
+    {
+        $sql = "SELECT * FROM `admin` WHERE username = :username AND pwd=:pwd";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':pwd', $pwd);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
     }
 }
 ?>

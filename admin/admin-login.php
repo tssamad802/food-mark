@@ -1,3 +1,7 @@
+<?php
+require_once '../includes/view.php';
+$view = new view();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +27,10 @@
       <!-- Button -->
       <button type="submit" class="bg-blue-500 text-white w-full py-2 rounded hover:bg-blue-600 transition">Login</button>
     </form>
+    <?php
+    $view->admin_errors();
+    $view->admin_error();
+    ?>
   </div>
 </body>
 </html>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin'])) {
+  header('Location: ./admin-login.php');
+  exit;
+} else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,3 +44,7 @@
   </main>
 </body>
 </html>
+
+<?php
+}
+?>

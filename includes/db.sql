@@ -12,3 +12,5 @@ username varchar(25) NOT NULL,
 pwd varchar(35) NOT NULL,
 created_at timestamp DEFAULT CURRENT_DATE
 );
+
+INSERT INTO `admin`(`username`, `pwd`) VALUES ('admin','admin123');
